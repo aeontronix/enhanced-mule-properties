@@ -1,0 +1,7 @@
+{
+  "testEncryptedDefaultValue": {
+    "name": "Test Key",
+    "secure": true,
+    "default": "{{encrypted:GKF3NJ+P94S3+r0EdmEw7U1YO/Eq+mBYqPORwbyyGJ8}}"
+  }
+}

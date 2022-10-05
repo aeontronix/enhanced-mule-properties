@@ -1,0 +1,13 @@
+example.one:
+  name: Example Property
+example.two:
+  name: Other example Property
+  secure: true
+otherapi.timeout:
+  name: Timeout value of otherapi
+  default: 50000
+otherapi.key:
+  name: API Key for OtherAPI
+my.cert:
+  type: file
+  secure: true

@@ -1,0 +1,7 @@
+example:
+  one: Orange
+  two: Apple
+otherapi:
+  key: dsaffdsafsdafasdfasd
+my:
+  cert: {{azvault:cert:mycert}}

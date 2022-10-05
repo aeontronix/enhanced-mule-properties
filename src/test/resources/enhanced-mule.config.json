@@ -1,0 +1,8 @@
+{
+  "default": "default",
+  "profiles": {
+    "default": {
+      "cryptoKey": "aes:pgdMzlJd2GtXEFLMnohHGDpPb5f/pSZfjTSL5x4pq3Q"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+vault.secret:
+  default: "{{azvault:secret:mysecret}}"
+vault.secret2:
+  default: "{{azvault:secret@ktsandbox2:mysecret}}"

@@ -1,0 +1,17 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:enhanced-mule-properties="http://www.mulesoft.org/schema/mule/enhanced-mule-properties"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/enhanced-mule-properties http://www.mulesoft.org/schema/mule/enhanced-mule-properties/current/mule-enhanced-mule-properties.xsd">
+    <enhanced-mule-properties:config name="config"/>
+
+    <flow name="test">
+        <set-variable variableName="filepath" value="file://${testHttps.ks.file}"/>
+        <set-variable variableName="cert" value="#[import * from dw::core::Binaries --- toBase64(readUrl(vars.filepath,'application/octet-stream'))]"/>
+        <set-variable variableName="storepw" value="${testHttps.ks.storepw}"/>
+        <set-variable variableName="keypw" value="${testHttps.ks.keypw}"/>
+        <set-variable variableName="alias" value="${testHttps.ks.alias}"/>
+        <set-variable variableName="port" value="${testHttps.port}"/>
+        <set-variable variableName="host" value="${testHttps.host}"/>
+    </flow>
+</mule>

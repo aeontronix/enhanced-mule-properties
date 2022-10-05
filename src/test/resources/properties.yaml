@@ -1,0 +1,50 @@
+anypoint.platform.client_id:
+  name: Anypoint platform client id
+  secure: false
+  default: xx
+anypoint.platform.client_secret:
+  name: Anypoint platform client secret
+  secure: true
+  default: xx
+anypoint.api.id:
+  name: Anypoint API identifier
+  secure: false
+ioi:
+  name: ioi
+  default: blue
+testDefaultValue:
+  name: Test Key
+  default: foo${lol}${ioi}
+testDefaultNbValue:
+  name: Test Key
+  default: 44
+testCert:
+  type: sscert
+testFile:
+  name: Test Key
+  type: file
+  default: Zm9v
+testUrl1:
+  type: url
+  default: http://www.be.com
+testUrl2:
+  type: url
+  default: https://www.be.com:8080/foo
+testUrl3:
+  type: url
+  default: https://www.be.com:8080/foo
+testHttps:
+  type: https
+  internal: true
+database:
+  type: group
+  properties:
+    host:
+      type: text
+      default: mydb
+    port:
+      type: text
+      default: '5432'
+testRawExpression:
+  name: Raw Expression
+  default: "{{raw:thisIsRawExp}}"

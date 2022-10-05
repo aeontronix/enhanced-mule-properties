@@ -1,0 +1,26 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:enhanced-mule-properties="http://www.mulesoft.org/schema/mule/enhanced-mule-properties"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/enhanced-mule-properties http://www.mulesoft.org/schema/mule/enhanced-mule-properties/current/mule-enhanced-mule-properties.xsd">
+
+    <enhanced-mule-properties:config name="config"/>
+
+    <flow name="test">
+        <set-variable variableName="t1url" value="${testUrl1}"/>
+        <set-variable variableName="t1scheme" value="${testUrl1.scheme}"/>
+        <set-variable variableName="t1host" value="${testUrl1.host}"/>
+        <set-variable variableName="t1port" value="${testUrl1.port}"/>
+        <set-variable variableName="t1path" value="${testUrl1.path}"/>
+        <set-variable variableName="t2url" value="${testUrl2}"/>
+        <set-variable variableName="t2scheme" value="${testUrl2.scheme}"/>
+        <set-variable variableName="t2host" value="${testUrl2.host}"/>
+        <set-variable variableName="t2port" value="${testUrl2.port}"/>
+        <set-variable variableName="t2path" value="${testUrl2.path}"/>
+        <set-variable variableName="t3url" value="${testUrl3}"/>
+        <set-variable variableName="t3scheme" value="${testUrl3.scheme}"/>
+        <set-variable variableName="t3host" value="${testUrl3.host}"/>
+        <set-variable variableName="t3port" value="${testUrl3.port}"/>
+        <set-variable variableName="t3path" value="${testUrl3.path}"/>
+    </flow>
+</mule>

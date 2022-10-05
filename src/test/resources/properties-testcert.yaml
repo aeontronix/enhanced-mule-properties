@@ -1,0 +1,3 @@
+testCert:
+  type: sscert
+  default: cn=api

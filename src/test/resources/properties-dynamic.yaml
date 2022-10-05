@@ -1,0 +1,2 @@
+myprop:
+  default: "{{uuid:}}"

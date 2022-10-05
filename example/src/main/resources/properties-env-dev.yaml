@@ -1,0 +1,7 @@
+example:
+  one: "Orange"
+  two: "{{encrypted:bFFctWpqXHAmym0IDbxKhMOiUjN8xHlMuwaRRaR7gAw}}"
+otherapi:
+  key: "dsaffdsafsdafasdfasd"
+my:
+  cert: "baser6434dsalf;fdsajf;asl;fasjfdjsal="

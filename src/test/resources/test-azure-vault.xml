@@ -1,0 +1,13 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:enhanced-mule-properties="http://www.mulesoft.org/schema/mule/enhanced-mule-properties"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/enhanced-mule-properties http://www.mulesoft.org/schema/mule/enhanced-mule-properties/current/mule-enhanced-mule-properties.xsd">
+
+    <enhanced-mule-properties:config name="config" descPath="test-azure-vault.yaml"/>
+
+    <flow name="test">
+        <set-variable variableName="res" value="${vault.secret}"/>
+        <set-variable variableName="res2" value="${vault.secret2}"/>
+    </flow>
+</mule>

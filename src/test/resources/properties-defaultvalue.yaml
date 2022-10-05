@@ -1,0 +1,6 @@
+testDefaultValue:
+  name: Test Key
+  default: sometest
+testDefaultNbValue:
+  name: Test Key
+  default: 44
