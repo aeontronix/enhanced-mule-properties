@@ -1,3 +1,5 @@
+image: maven:3.6.3-jdk-8
+
 include:
   - project: 'aeontronix/commercial-software/ci-pipeline-lib'
     file: 'gitlab/maven-oss-lib.yml'
