@@ -14,4 +14,4 @@ It provides various significant features lacking from the standard property mana
 # Usage
 
 
-See [Docs](docs/index.md) for more details
+See [Documentation Website](https://docs.enhanced-mule.com/properties/index.html) for more details
