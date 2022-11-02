@@ -191,7 +191,7 @@ public class EConfigProvider implements ConfigurationPropertiesProvider, Initial
             if (overrides != null) {
                 for (Map.Entry<String, String> e : overrides.entrySet()) {
                     if (resolvedProperties.get(e.getKey()) == null) {
-                        if (!propertiesValidation) {
+                        if (propertiesValidation) {
                             throw new PropertyResolutionException("Found undefined property: " + e.getKey());
                         } else {
                             resolvedProperties.add(e.getKey(), new DefaultPropertyValue(e.getValue(), false));
