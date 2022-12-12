@@ -11,6 +11,8 @@ import com.aeontronix.enhancedmule.propertiesprovider.property.PropertyResolutio
 import com.aeontronix.enhancedmule.propertiesprovider.property.value.DefaultPropertyValue;
 import com.aeontronix.enhancedmule.propertiesprovider.property.value.PropertyValue;
 import com.aeontronix.enhancedmule.propertiesprovider.utils.JacksonFlattener;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -144,7 +146,9 @@ public class EConfigProvider implements ConfigurationPropertiesProvider, Initial
                 throw new IllegalArgumentException("Invalid descriptor file path, must end in .json, .yaml or .yml");
             }
             final JsonMapper objectMapper = builder
-                    .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS).build();
+                    .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
+                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    .build();
             SimpleModule module = new SimpleModule();
             module.addDeserializer(ConfigProperty.class, new ConfigPropertyDeserializer(objectMapper));
             objectMapper.registerModule(module);
@@ -330,6 +334,7 @@ public class EConfigProvider implements ConfigurationPropertiesProvider, Initial
     }
 
     private String loadEncryptionKey(ObjectMapper objectMapper) throws IOException {
+        logger.debug("Loading encryption key");
         try (final InputStream is = findConfigFile()) {
             if (is != null) {
                 try {
@@ -353,13 +358,21 @@ public class EConfigProvider implements ConfigurationPropertiesProvider, Initial
     private static InputStream findConfigFile() throws FileNotFoundException {
         File file = new File(configFilename);
         if (file.exists()) {
+            logger.debug("Found config file: "+file.getPath());
             return new FileInputStream(file);
         }
-        file = new File(System.getProperty("user.home"), ".enhanced-mule" + File.separator + configFilename);
+        file = new File(System.getProperty("user.home"), "."+configFilename);
         if (file.exists()) {
+            logger.debug("Found config file: "+file.getPath());
             return new FileInputStream(file);
         }
-        return EConfigProvider.class.getClassLoader().getResourceAsStream(configFilename);
+        final InputStream is = EConfigProvider.class.getClassLoader().getResourceAsStream(configFilename);
+        if( is != null ) {
+            logger.debug("Found config file: "+configFilename);
+        } else {
+            logger.debug("Couldn't find config file");
+        }
+        return is;
     }
 
     @Override
